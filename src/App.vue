@@ -1,15 +1,13 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<CalculatorComp/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import CalculatorComp from "./components/CalculatorComp.vue";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CalculatorComp
   }
 }
 </script>
@@ -23,4 +21,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-</style>
+</style>./components/CalculatorComp.vue
