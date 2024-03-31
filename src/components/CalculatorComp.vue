@@ -2,8 +2,8 @@
     <div class="calculator">
         <div class="display">{{ current || "0" }}</div>
             <div @click="clear" class="btn">C</div>
-            <div class="btn">+/-</div>
-            <div class="btn">%</div>
+            <div @click="sign()" class="btn">+/-</div>
+            <div @click="percentage()" class="btn">%</div>
             <div @click="divide()" class="btn operator">:</div>
             <div @click="append('7')" class="btn">7</div>
             <div @click="append('8')" class="btn">8</div>
@@ -18,7 +18,7 @@
             <div @click="append('3')" class="btn">3</div>
             <div @click="add()" class="btn operator">+</div>
             <div @click="append('0')" class="btn zero">0</div>
-            <div class="btn">.</div>
+            <div @click="dot()" class="btn">.</div>
             <div @click="equal()" class="btn operator">=</div>
     </div>
 </template>
@@ -71,6 +71,17 @@
           divide() {
             this.operator = (a,b) => a / b
             this.setprevious()
+          },
+          dot() {
+            if (this.current.indexOf('.') === -1) {
+              this.append(".")
+            }
+          },
+          percentage() {
+            this.current = `${parseFloat(this.current) / 100}`
+          },
+          sign() {
+            this.current = this.current.charAt(0) === '-'?this.current.slice(1) : `-${this.current}`
           }
         }
     }
